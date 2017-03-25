@@ -13,7 +13,10 @@ class App extends Component {
   }
 
   create(){
-    this.setState({ inicio: ["dante","oliver"] }); 
+    let name = this.refs["name"].value;
+    let joinning = this.state.inicio.concat(name);
+
+    this.setState({ inicio:  joinning}); 
 
   }
 
@@ -23,9 +26,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Dante BoilerPlate</h2>
-          <input type="text" placeholder="escribe una tarea">
-          <button onClick={this.create}>Crear</button>
+          <h2>Just Adding Tasks</h2>
+          <input ref="name" type="text" placeholder="escribe una tarea" />
+          <button onClick={this.create}>Create Task</button>
           
         </div>
         
