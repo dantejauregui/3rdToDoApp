@@ -24,12 +24,13 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Dante BoilerPlate</h2>
+          <input type="text" placeholder="escribe una tarea">
           <button onClick={this.create}>Crear</button>
           
         </div>
         
         <div className="App-body">
-          {this.state.inicio.map( (item, i) => {<Tags key={i} items={item} />} )
+          {this.state.inicio.map( (item, i) => {return <Tags key={i} items={item} />} )
           }
         </div>
       </div>
