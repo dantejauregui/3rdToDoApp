@@ -1,37 +1,43 @@
 import React, { Component } from 'react';
 
-import Tags from './components/tags.js';
+import TodosList from './components/todos-list.js';
+import CreateTodo from './components/create-todo.js';
 import './App.css';
 
+
+const initialBD = [
+  {
+    task: 'make react tutorial',
+    isCompleted: false
+  },
+
+  {
+    task: 'eat dinner',
+    isCompleted: true
+  }
+];
+
+
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.state = { inicio: [] };
+    this.state = {
+      todos: initialBD,
 
-    this.create = this.create.bind(this);
+    };
   }
 
-  create(){
-    this.setState({ inicio: ["dante","oliver"] }); 
 
-  }
 
   render() {
-    console.log(this.state.inicio);
-
+    console.log(this.state.dante);
+    
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Dante BoilerPlate</h2>
-          <button onClick={this.create}>Crear</button>
-          
-        </div>
-        
-        <div className="App-body">
-          {this.state.inicio.map( (item, i) => {<Tags key={i} items={item} />} )
-          }
-        </div>
+      <div>
+        <h1>React ToDos App</h1>
+        <CreateTodo todos={ this.state.todos }/>
+        <TodosList todos={ this.state.todos }/>
       </div>
     );
   }
