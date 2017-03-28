@@ -6,7 +6,7 @@ class TodosListHeader extends Component {
     return (
       <thead>
         <tr>
-          <th>Dante</th>
+          <th>To-Dos</th>
         </tr>
       </thead>
     );

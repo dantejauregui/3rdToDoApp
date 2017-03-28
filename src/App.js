@@ -26,17 +26,30 @@ class App extends Component {
       todos: initialBD,
 
     };
+
+    this.funcionDante=this.funcionDante.bind(this);
   }
 
 
 
-  render() {
-    console.log(this.state.dante);
+  funcionDante(data) {
+    let grupo = this.state.todos.concat({task: data, isCompleted: false});
+
+    this.setState({
+
+      todos: grupo,
+
+    })
     
+  }
+
+
+  render() {
     return (
       <div>
         <h1>React ToDos App</h1>
-        <CreateTodo todos={ this.state.todos }/>
+        <CreateTodo funcion={this.funcionDante}/>
+        <br/>  
         <TodosList todos={ this.state.todos }/>
       </div>
     );

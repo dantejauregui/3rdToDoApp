@@ -11,8 +11,6 @@ class TodosList extends Component {
   }
 
   render() {
-    console.log(this.props.todos);
-
     return (
       <table>
         <TodosListHeader />

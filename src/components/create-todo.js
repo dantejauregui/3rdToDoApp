@@ -2,32 +2,28 @@ import React, { Component } from 'react';
 
 
 class CreateTodo extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-
-    this.state = {dante: this.props.todos}
-
-    this.dante = this.dante.bind(this);
-  }
-
-  dante() {
-    let name = this.refs["name"].value;
-    let joinning = this.state.dante.concat({task: name,
-        isCompleted: false,});
-
-    this.setState ({dante: joinning});
     
+    this.creandoEvento=this.creandoEvento.bind(this);
   }
-  
+
+
+  creandoEvento(e) {
+    e.preventDefault();
+    let name = this.refs.name.value;
+
+    this.props.funcion(name);
+    this.refs.name.value = " ";
+  }
+
 
   render() {
     return (
-      <div>
+      <form onSubmit={this.creandoEvento}>
         <input ref="name" type="text" placeholder="crea tarea"/>
-        <button onClick={this.dante}>Crear</button>
-      </div> 
-      
-        
+        <button>Crear</button>
+      </form> 
       
     );
   }
